@@ -1,16 +1,32 @@
-﻿@{
+﻿@using Project02CarRentalWebApp.Models
+@model List<Address>
+@{
     ViewBag.Title = "Contact";
 }
 <h2>@ViewBag.Title.</h2>
 <h3>@ViewBag.Message</h3>
-
+<h3> @ViewBag.Val</h3>
+<h3>@(ViewBag.Val + 1)</h3>
 <address>
-    One Microsoft Way<br />
-    Redmond, WA 98052-6399<br />
+    @ViewBag.Address.StreetName<br />
+    @ViewBag.Address.CityName, @ViewBag.Address.ZipCode<br />
     <abbr title="Phone">P:</abbr>
-    425.555.0100
+    @ViewBag.Address.PhoneNumber<br />
+    @*One Microsoft Way<br />
+        Redmond, WA 98052-6399<br />
+        <abbr title="Phone">P:</abbr>
+        425.555.0100*@
 </address>
-
+<text>@ViewData["vala"]</text>
+@foreach (Address a in Model)
+{
+    <address>
+        @a.StreetName<br />
+        @a.CityName, @a.ZipCode<br />
+        <abbr title="Phone">P:</abbr>
+        @a.PhoneNumber<br />
+    </address>
+}
 <address>
     <strong>Support:</strong>   <a href="mailto:Support@example.com">Support@example.com</a><br />
     <strong>Marketing:</strong> <a href="mailto:Marketing@example.com">Marketing@example.com</a>

@@ -1,6 +1,6 @@
 ﻿namespace Project02CarRentalWebApp.Models
 {
-    public class SurveyViewModels
+    public class SurveyFillViewModel
     {
         public Survey Survey { get; set; }
         public Address Address { get; set; }
