@@ -1,9 +1,12 @@
-﻿namespace Project02CarRentalWebApp.Migrations
+﻿using System;
+using System.Data.Entity.Migrations;
+using Project02CarRentalWebApp.Models;
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
+namespace Project02CarRentalWebApp.Migrations
 {
-    using System;
-    using System.Data.Entity.Migrations;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<Project02CarRentalWebApp.Models.ApplicationDbContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<Project02CarRentalWebApp.Models.CarRentalDbContext>
     {
         public Configuration()
         {
@@ -11,7 +14,7 @@
             AutomaticMigrationDataLossAllowed = true;
         }
 
-        protected override void Seed(Project02CarRentalWebApp.Models.ApplicationDbContext context)
+        protected override void Seed(CarRentalDbContext context)
         {
             Guid guid1 = new Guid("1F941B15-1BF9-4793-83F1-A5B8523AB118");
             Guid guid2 = new Guid("B0FAC3A3-7955-4A91-B0B3-A666021D4026");

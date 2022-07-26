@@ -183,6 +183,9 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AddressController.cs" />
+    <Compile Include="Controllers\ApiSampleController.cs" />
+    <Compile Include="Controllers\CalculatorApiController.cs" />
+    <Compile Include="Controllers\CalculatorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\SurveyController.cs" />
@@ -266,6 +269,9 @@
     <Content Include="Views\Address\Edit.cshtml" />
     <Content Include="Views\Address\Index.cshtml" />
     <Content Include="Views\Survey\FIll.cshtml" />
+    <Content Include="Views\ApiSample\ApiSample.cshtml" />
+    <Content Include="Views\Calculator\Calculator.cshtml" />
+    <Content Include="Views\Calculator\Evaluate.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -1,0 +1,62 @@
+﻿@section AddToHead{
+    @Styles.Render("~/Content/calc");
+    @Scripts.Render("~/bundles/calc");
+}
+@{
+    ViewBag.Title = "Calculator";
+}
+<h2 center>@ViewBag.Title</h2>
+<div class="container text-center" id="calc">
+    <div class="calcBG col-md-3 col-md-offset-4 text-center">
+        <div class="row">
+            <small>Bootstrap Calculator</small>
+        </div>
+        <div class="row" id="result">
+            <form name="calc">
+                <input id="calculatorDisplay" type="text" class="screen text-right" name="result" readonly>
+            </form>
+        </div>
+        <div class="row">
+            <button id="allClear" type="button" class="btn btn-danger" onclick="clearScreen()">AC</button>
+            <button id="clear" type="button" class="btn btn-warning">CE</button>
+            <button id="%" type="button" class="btn btn-info">%</button>
+            <button id="/" type="button" class="btn btn-info">÷</button>
+        </div>
+        <div class="row">
+            <button id="7" type="button" class="btn btn-info">7</button>
+            <button id="8" type="button" class="btn btn-info">8</button>
+            <button id="9" type="button" class="btn btn-info">9</button>
+            <button id="*" type="button" class="btn btn-info">*</button>
+        </div>
+        <div class="row">
+            <button id="4" type="button" class="btn btn-info">4</button>
+            <button id="5" type="button" class="btn btn-info">5</button>
+            <button id="6" type="button" class="btn btn-info">6</button>
+            <button id="-" type="button" class="btn btn-info">-</button>
+        </div>
+        <div class="row">
+            <button id="1" type="button" class="btn btn-info">1</button>
+            <button id="2" type="button" class="btn btn-info">2</button>
+            <button id="3" type="button" class="btn btn-info">3</button>
+            <button id="+" type="button" class="btn btn-info">+</button>
+        </div>
+        <div class="row">
+            <button id="0" type="button" class="btn btn-info">0</button>
+            <button id="." type="button" class="btn btn-info">.</button>
+            <button id="equals" type="button" class="btn btn-success">=</button>
+            <button id="equals2" type="button" class="btn btn-default">=</button>
+        </div>
+        <div class="row">
+            <button id="equals3" type="button" class="btn btn-warning">=</button>
+            <button id="x" type="button" class="btn btn-info">x</button>
+        </div>
+        <input type="text" id="usernameInput" placeholder="Username" />
+        <input type="text" id="passwordInput" placeholder="Password" />
+        <button id="submit">Submit</button>
+        <div id="dataDiv"></div>
+        <div id="plot" type="button" class="btn btn-info">Plot</div>
+    </div>
+</div>
+<div>
+    <canvas id="myCanvas" class="c"></canvas>
+</div>
