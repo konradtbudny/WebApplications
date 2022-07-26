@@ -1,0 +1,117 @@
+﻿@using Project02CarRentalWebApp.Models
+
+@section AddToHead{
+    @Scripts.Render("~/bundles/addresses");
+}
+@model IEnumerable<Project02CarRentalWebApp.Models.Address>
+
+@{
+    ViewBag.Title = "Index";
+}
+<h2>Index</h2>
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<p>
+    <input id="addressLookUp" placeholder="Look for address" value="@ViewBag.searchPhrase" />
+
+</p>
+
+<button type="button" class="btn btn-default" id="search">Search</button>
+
+<button type="button" class="btn btn-default" id="clearSearch">
+    Clear search
+</button>
+<table class="table" id="addressesListTable">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.CityName)
+            <button type="button" class="btn btn-default" id="CityName_Asc">
+                <span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span>
+            </button>
+            <button type="button" class="btn btn-default" id="CityName_Desc">
+                <span class="glyphicon glyphicon-arrow-down" aria-hidden="true"></span>
+            </button>
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.StreetName)
+            <button type="button" class="btn btn-default" id="StreetName_Asc">
+                <span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span>
+            </button>
+            <button type="button" class="btn btn-default" id="StreetName_Desc">
+                <span class="glyphicon glyphicon-arrow-down" aria-hidden="true"></span>
+            </button>
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ZipCode)
+            <button type="button" class="btn btn-default" id="ZipCode_Asc">
+                <span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span>
+            </button>
+            <button type="button" class="btn btn-default" id="ZipCode_Desc">
+                <span class="glyphicon glyphicon-arrow-down" aria-hidden="true"></span>
+            </button>
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PhoneNumber)
+            <button type="button" class="btn btn-default" id="PhoneNumber_Asc">
+                <span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span>
+            </button>
+            <button type="button" class="btn btn-default" id="PhoneNumber_Desc">
+                <span class="glyphicon glyphicon-arrow-down" aria-hidden="true"></span>
+            </button>
+        </th>
+        <th></th>
+        <th>
+            Page
+            <input id="PageNumber" type="text" class="narrowInput" value="@ViewBag.CurrentPageNumber">
+            from
+            <span id="TotalPageNumber">@ViewBag.TotalPageNumber</span>
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CityName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StreetName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ZipCode)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PhoneNumber)
+            </td>
+            <td>
+                @if (item.ImportanceLevel.Equals(ImportanceLevel.Critical))
+                {
+                    <img class="importanceLevel" src="~/Content/ImagesLevels/critical.png" />
+                }
+                else if (item.ImportanceLevel.Equals(ImportanceLevel.VIP))
+                {
+                    <img class="importanceLevel" src="~/Content/ImagesLevels/vip.png" />
+                }
+            </td>
+            <td>
+                @if (User.Identity.IsAuthenticated)
+                {
+                    @Html.ActionLink("Edit", "Edit", new { id = item.Id }, new { @class = "btn btn-warning btn-xs" }) <text>|</text>
+                }
+                @Html.ActionLink("Details", "Details", new { id = item.Id }, new { @class = "btn btn-success btn-xs" })
+                @if (User.IsInRole("Administrator"))
+                {
+                    <text>|</text>
+                    @Html.ActionLink("Delete", "Delete", new { id = item.Id }, new { @class = "btn btn-danger btn-xs" })}
+
+            </td>
+        </tr>
+    }
+</table>
+@using (Html.BeginForm("Index", "Address", FormMethod.Get))
+{
+    <div>
+        @Html.DropDownList("PageSize", new SelectList(new Dictionary<string, int> { { "2", 2 }, { "5", 5 }, { "8", 8 }, { "10", 10 } }, "Key", "Value"), new { @class = "btn btn-primary  dropdown-toggle", id = "pagesizelist" })
+    </div>
+}

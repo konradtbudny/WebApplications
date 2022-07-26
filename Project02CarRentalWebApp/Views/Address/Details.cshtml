@@ -1,0 +1,80 @@
+﻿@using Project02CarRentalWebApp.Models
+
+@model AddressDetailsViewModel
+@section AddToHead{
+    @Scripts.Render("~/bundles/addresses");
+}
+<script>
+     var addressId = @Html.Raw(Json.Encode(Model.Address.Id));
+</script>
+@{
+    ViewBag.Title = "Details";
+}
+<h2>Details</h2>
+<div>
+    <h4>Address</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Address.CityName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Address.CityName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Address.StreetName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Address.StreetName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Address.ZipCode)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Address.ZipCode)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Address.PhoneNumber)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Address.PhoneNumber)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Address.Email)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Address.Email)
+        </dd>
+        <dt>
+            Importance Level
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Address.ImportanceLevel)
+        </dd>
+        @if (User.Identity.IsAuthenticated)
+        {
+            <dt>
+                Survey
+            </dt>
+            <dd>
+                @Html.DropDownList("SurveyDropdown", Model.Surveys.Select(a => new SelectListItem() { Text = a.Title, Value = a.Id.ToString() }))
+                <button id="FillSurvey" class="gradient-button">Fill Survey</button>
+            </dd>
+            <dd>
+                <textarea class="form-control" rows="5" id="emailMsg"></textarea>
+
+                <button id="sendEmail">Send E-mail</button>
+            </dd>
+        }
+    </dl>
+</div>
+<div class="alert alert-warning fade in" hidden>
+    <a href="#" class=" close" data-dismiss="alert" aria-label="close" style="text-decoration:none">&times;</a>
+    <text id="message">CZY WIADOMOSC E-MAIL ZOSTALA WYSLANA</text>
+</div>
+<p>
+    @if (User.Identity.IsAuthenticated)
+    {
+        @Html.ActionLink("Edit", "Edit", new { id = Model.Address.Id }) <text>|</text>}
+    @Html.ActionLink("Back to List", "Index")
+</p>

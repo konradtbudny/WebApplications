@@ -1,11 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Collections.Generic;
 
-namespace Project02CarRentalWebApp.ViewModels
+namespace Project02CarRentalWebApp.Models
 {
-    public class AddressViewModels
+    public class AddressDetailsViewModel
     {
+        public IEnumerable<Survey> Surveys { get; set; }
+        public Address Address { get; set; }
     }
 }
