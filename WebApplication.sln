@@ -5,7 +5,7 @@ VisualStudioVersion = 17.2.32630.192
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Project01PeopleAPI", "PeopleAPI\Project01PeopleAPI.csproj", "{3642E7C4-E51E-4688-969D-0B7BD78F3B55}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Project02CarRentalWebApp", "Project02CarRentalWebApp\Project02CarRentalWebApp.csproj", "{82B7C42A-6764-4811-B16A-0C76AF43A6F3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Project02QuestionareWebApp", "Project02CarRentalWebApp\Project02QuestionareWebApp.csproj", "{82B7C42A-6764-4811-B16A-0C76AF43A6F3}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Project02CarRentalWebApp.Tests", "Project02CarRentalWebApp.Tests\Project02CarRentalWebApp.Tests.csproj", "{ECACC4BA-02A3-4D78-B8DF-36A05D59C890}"
 EndProject

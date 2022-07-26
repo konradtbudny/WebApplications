@@ -99,9 +99,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Project02CarRentalWebApp\Project02CarRentalWebApp.csproj">
+    <ProjectReference Include="..\Project02CarRentalWebApp\Project02QuestionareWebApp.csproj">
       <Project>{82B7C42A-6764-4811-B16A-0C76AF43A6F3}</Project>
-      <Name>Project02CarRentalWebApp</Name>
+      <Name>Project02QuestionareWebApp</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
